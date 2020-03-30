@@ -1,0 +1,31 @@
+name: higia_videoCall
+description: MVP for Higia.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.3
+  agora_rtc_engine: ^1.0.8
+  permission_handler: ^4.4.0+hotfix.2 #^5.0.0+hotfix.1
+  animate_do: ^1.6.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  fonts:
+    - family: gill
+      fonts:
+        - asset: assets/fonts/gillsans.ttf
+    - family: gillBold
+      fonts:
+        - asset: assets/fonts/gillSans_bold.ttf
