@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import '../widgets/logo_higia.dart';
@@ -108,8 +109,10 @@ class IndexState extends State<IndexPage> {
     });
     if (_channelController.text.isNotEmpty) {
       // await for camera and mic permissions before pushing video page
-      await _handleCameraAndMic();
-      // push video page with given channel name
+      if (Platform.isAndroid || Platform.isIOS) {
+        await _handleCameraAndMic();
+        // push video page with given channel name
+      }
       await Navigator.push(
         context,
         MaterialPageRoute(
@@ -122,8 +125,10 @@ class IndexState extends State<IndexPage> {
   }
 
   Future<void> _handleCameraAndMic() async {
-    await PermissionHandler().requestPermissions(
-      [PermissionGroup.camera, PermissionGroup.microphone],
-    );
+    Permission statusCamera = Permission.camera;
+    Permission statusMicrophone = Permission.microphone;
+    if (await statusCamera.isUndetermined || await statusMicrophone.isUndetermined) {
+      await [statusCamera, statusMicrophone].request();
+    }
   }
 }
