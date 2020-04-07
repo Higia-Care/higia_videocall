@@ -1,4 +1,4 @@
-package com.example.video
+package co.higia.videocall
 
 import io.flutter.embedding.android.FlutterActivity
 
