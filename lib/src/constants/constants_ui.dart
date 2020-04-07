@@ -30,7 +30,7 @@ var themeData = ThemeData(
   iconTheme: IconThemeData(color: kprimaryColorTheme),
   accentColor: ksecundaryHeaderColorTheme,
   textTheme: TextTheme(
-      body1: TextStyle(
+      bodyText1: TextStyle(
     fontSize: 20,
     fontFamily: "gill",
   )),
