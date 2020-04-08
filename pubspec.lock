@@ -7,7 +7,7 @@ packages:
       name: agora_rtc_engine
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.8"
+    version: "1.0.9"
   animate_do:
     dependency: "direct main"
     description:
@@ -122,7 +122,7 @@ packages:
       name: permission_handler
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.0+hotfix.1"
+    version: "5.0.0+hotfix.3"
   permission_handler_platform_interface:
     dependency: transitive
     description:
