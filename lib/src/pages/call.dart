@@ -280,20 +280,14 @@ class _CallPageState extends State<CallPage> {
     );
   }
 
-  void _onCallEnd(BuildContext context) {
-    Navigator.pop(context);
-  }
+  void _onCallEnd(BuildContext context) => Navigator.pop(context);
 
   void _onToggleMute() {
-    setState(() {
-      muted = !muted;
-    });
+    setState(() => muted = !muted);
     AgoraRtcEngine.muteLocalAudioStream(muted);
   }
 
-  void _onSwitchCamera() {
-    AgoraRtcEngine.switchCamera();
-  }
+  void _onSwitchCamera() => AgoraRtcEngine.switchCamera();
 
   @override
   Widget build(BuildContext context) {

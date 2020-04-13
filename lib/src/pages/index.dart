@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:higia_videoCall/src/widgets/login_boxId_widget.dart';
+import 'package:higia_videoCall/src/widgets/login_button.dart';
+import 'package:higia_videoCall/src/widgets/welcome_user_text_widget.dart';
 import 'package:permission_handler/permission_handler.dart';
 import '../widgets/logo_higia.dart';
-import '../constants/constants_ui.dart';
 import './call.dart';
 
 class IndexPage extends StatefulWidget {
@@ -14,6 +16,7 @@ class IndexPage extends StatefulWidget {
 class IndexState extends State<IndexPage> {
   /// create a channelController to retrieve text value
   final _channelController = TextEditingController();
+  final String buttonTextLogin = 'Unirme a la terapia';
 
   /// if channel textField is validated to have error
   bool _validateError = false;
@@ -28,10 +31,6 @@ class IndexState extends State<IndexPage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final styleTextWelcome = TextStyle(
-      fontSize: 18,
-      fontWeight: FontWeight.w700,
-    );
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -41,57 +40,15 @@ class IndexState extends State<IndexPage> {
           SizedBox(height: size.height * 0.05),
           Column(
             children: <Widget>[
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 40),
-                width: size.width,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text('Hola, bienvenido', style: styleTextWelcome),
-                    Text('Para ingresar a la terapia ingrese su ID',
-                        style: styleTextWelcome),
-                  ],
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: TextField(
-                  controller: _channelController,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.perm_identity),
-                    errorText: _validateError ? 'El ID es obligatorio' : null,
-                    border: UnderlineInputBorder(
-                      borderSide: BorderSide(width: 1),
-                    ),
-                    hintText: 'Ingrese ID',
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: kprimaryColorTheme)),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: kprimaryColorTheme)),
-                    disabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: kprimaryColorTheme)),
-                    errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: kprimaryColorTheme)),
-                    focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: kprimaryColorTheme)),
-                  ),
-                ),
+              WelcomeUserText(),
+              LoginBoxId(
+                channelController: _channelController,
+                validateError: _validateError,
               ),
               SizedBox(height: size.height * 0.05),
-              RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                onPressed: onJoin,
-                child: Padding(
-                  padding: const EdgeInsets.all(14.0),
-                  child: Text(
-                    'Unirme a la terapia',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ),
-                color: ksecundaryHeaderColorTheme,
-                textColor: Colors.white,
+              LoginButton(
+                buttonTextLogin: buttonTextLogin,
+                functionOnPress: onJoin,
               ),
             ],
           ),
@@ -127,7 +84,8 @@ class IndexState extends State<IndexPage> {
   Future<void> _handleCameraAndMic() async {
     Permission statusCamera = Permission.camera;
     Permission statusMicrophone = Permission.microphone;
-    if (await statusCamera.isUndetermined || await statusMicrophone.isUndetermined) {
+    if (await statusCamera.isUndetermined ||
+        await statusMicrophone.isUndetermined) {
       await [statusCamera, statusMicrophone].request();
     }
   }

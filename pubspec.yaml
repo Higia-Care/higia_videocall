@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.3
-  agora_rtc_engine: ^1.0.9
+  agora_rtc_engine: ^1.0.10
   permission_handler: ^5.0.0+hotfix.3
   animate_do: ^1.6.3
 
