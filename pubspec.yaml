@@ -1,5 +1,7 @@
 name: higia_videoCall
 description: MVP for Higia.
+authors:
+  - Sebastian Garzon
 
 version: 1.0.0+1
 
@@ -14,6 +16,7 @@ dependencies:
   agora_rtc_engine: ^1.0.10
   permission_handler: ^5.0.0+hotfix.3
   animate_do: ^1.6.3
+  provider: ^4.0.5
 
 dev_dependencies:
   flutter_test:

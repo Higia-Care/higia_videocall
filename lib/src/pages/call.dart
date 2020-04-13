@@ -1,11 +1,12 @@
 import 'dart:async';
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:flutter/material.dart';
-
 import '../widgets/appBar_higia.dart';
 import '../utils/settings.dart';
 
 class CallPage extends StatefulWidget {
+  static String route = 'CallPage';
+
   /// non-modifiable channel name of the page
   final String channelName;
 

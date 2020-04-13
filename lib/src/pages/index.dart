@@ -9,6 +9,7 @@ import '../widgets/logo_higia.dart';
 import './call.dart';
 
 class IndexPage extends StatefulWidget {
+  static String route = 'IndexPage';
   @override
   State<StatefulWidget> createState() => IndexState();
 }
@@ -38,19 +39,21 @@ class IndexState extends State<IndexPage> {
         children: <Widget>[
           LogoHigia(),
           SizedBox(height: size.height * 0.05),
-          Column(
-            children: <Widget>[
-              WelcomeUserText(),
-              LoginBoxId(
-                channelController: _channelController,
-                validateError: _validateError,
-              ),
-              SizedBox(height: size.height * 0.05),
-              LoginButton(
-                buttonTextLogin: buttonTextLogin,
-                functionOnPress: onJoin,
-              ),
-            ],
+          SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                WelcomeUserText(),
+                LoginBoxId(
+                  channelController: _channelController,
+                  validateError: _validateError,
+                ),
+                SizedBox(height: size.height * 0.05),
+                LoginButton(
+                  buttonTextLogin: buttonTextLogin,
+                  functionOnPress: onJoin,
+                ),
+              ],
+            ),
           ),
         ],
       ),

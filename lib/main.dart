@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import './src/constants/routes.dart';
 import './src/pages/index.dart';
 import 'src/constants/constants_ui.dart';
 
@@ -15,8 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Higia call',
       debugShowCheckedModeBanner: false,
+      initialRoute: IndexPage.route,
       theme: themeData,
-      home: IndexPage(),
+      routes: routes,
     );
   }
 }
