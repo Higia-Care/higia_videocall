@@ -38,7 +38,7 @@ class IndexState extends State<IndexPage> {
 
     return Scaffold(
       body: SingleChildScrollView(
-        padding: EdgeInsets.only(top: size.height * 0.07),
+        padding: EdgeInsets.only(top: size.height * 0.2),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -52,7 +52,7 @@ class IndexState extends State<IndexPage> {
                   channelController: _channelController,
                   validateError: _validateError,
                 ),
-                SizedBox(height: size.height * 0.01),
+                SizedBox(height: size.height * 0.02),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -114,7 +114,7 @@ class IndexState extends State<IndexPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: size.height * 0.01),
+                SizedBox(height: size.height * 0.02),
                 LoginButton(
                   buttonTextLogin: buttonTextLogin,
                   functionOnPress: onJoin,
@@ -134,7 +134,7 @@ class IndexState extends State<IndexPage> {
           ? _validateError = true
           : _validateError = false;
     });
-    if (_channelController.text.isNotEmpty) {
+    if (_channelController.text.isNotEmpty && userPrivacityButtonStatus) {
       // await for camera and mic permissions before pushing video page
       if (Platform.isAndroid || Platform.isIOS) {
         await _handleCameraAndMic();
