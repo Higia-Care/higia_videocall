@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:higia_videoCall/src/constants/constants_ui.dart';
-import 'package:higia_videoCall/src/constants/user_aggrement.dart';
-import 'package:higia_videoCall/src/widgets/login_boxId_widget.dart';
-import 'package:higia_videoCall/src/widgets/login_button.dart';
-import 'package:higia_videoCall/src/widgets/welcome_user_text_widget.dart';
 import 'package:permission_handler/permission_handler.dart';
+import '../../src/constants/constants_ui.dart';
+import '../../src/constants/user_aggrement.dart';
+import '../../src/widgets/login_boxId_widget.dart';
+import '../../src/widgets/login_button.dart';
+import '../../src/widgets/welcome_user_text_widget.dart';
 import '../widgets/logo_higia.dart';
 import './call.dart';
 
@@ -53,67 +53,7 @@ class IndexState extends State<IndexPage> {
                   validateError: _validateError,
                 ),
                 SizedBox(height: size.height * 0.02),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    GestureDetector(
-                      onTap: () {
-                        showDialog(
-                          context: context,
-                          builder: (_) => AlertDialog(
-                            title: Text('Acuerdo de usuario'),
-                            content: Text(userAgrement),
-                            elevation: 10,
-                            scrollable: true,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            actions: <Widget>[
-                              FlatButton(
-                                child: Text(
-                                  'No acepto',
-                                  style: TextStyle(
-                                    color: themeData.accentColor,
-                                  ),
-                                ),
-                                onPressed: () {
-                                  setState(
-                                      () => userPrivacityButtonStatus = false);
-                                  Navigator.pop(context);
-                                },
-                              ),
-                              FlatButton(
-                                child: Text(
-                                  'Si acepto',
-                                  style: TextStyle(
-                                    color: themeData.accentColor,
-                                  ),
-                                ),
-                                onPressed: () {
-                                  setState(
-                                      () => userPrivacityButtonStatus = true);
-                                  Navigator.pop(context);
-                                },
-                              ),
-                            ],
-                          ),
-                          barrierDismissible: false,
-                        );
-                      },
-                      child: Text(
-                        'Antes de ingresar acepta nuestra politica de privacidad',
-                        style: TextStyle(decoration: TextDecoration.underline),
-                      ),
-                    ),
-                    Checkbox(
-                      onChanged: (value) {
-                        setState(() => userPrivacityButtonStatus = value);
-                      },
-                      value: userPrivacityButtonStatus,
-                      activeColor: kprimaryColorTheme,
-                    ),
-                  ],
-                ),
+                userAgreementWidget(context),
                 SizedBox(height: size.height * 0.02),
                 LoginButton(
                   buttonTextLogin: buttonTextLogin,
@@ -124,6 +64,69 @@ class IndexState extends State<IndexPage> {
           ],
         ),
       ),
+    );
+  }
+
+  ///This method return the user agreement like a alertDialog
+  Row userAgreementWidget(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        GestureDetector(
+          onTap: () {
+            showDialog(
+              context: context,
+              builder: (_) => AlertDialog(
+                title: Text('Acuerdo de usuario'),
+                content: Text(userAgrement),
+                elevation: 10,
+                scrollable: true,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                actions: <Widget>[
+                  FlatButton(
+                    child: Text(
+                      'No acepto',
+                      style: TextStyle(
+                        color: themeData.accentColor,
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() => userPrivacityButtonStatus = false);
+                      Navigator.pop(context);
+                    },
+                  ),
+                  FlatButton(
+                    child: Text(
+                      'Si acepto',
+                      style: TextStyle(
+                        color: themeData.accentColor,
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() => userPrivacityButtonStatus = true);
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
+              ),
+              barrierDismissible: false,
+            );
+          },
+          child: Text(
+            'Antes de ingresar acepta nuestra politica de privacidad',
+            style: TextStyle(decoration: TextDecoration.underline),
+          ),
+        ),
+        Checkbox(
+          onChanged: (value) {
+            setState(() => userPrivacityButtonStatus = value);
+          },
+          value: userPrivacityButtonStatus,
+          activeColor: kprimaryColorTheme,
+        ),
+      ],
     );
   }
 
