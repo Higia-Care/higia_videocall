@@ -25,6 +25,10 @@ final TextStyle titlenumbersStyle = TextStyle(
 var themeData = ThemeData(
   ///This var provide the global theme for the app
   primaryColor: kprimaryColorTheme,
+  colorScheme: ColorScheme.light(
+    primary: kprimaryColorTheme,
+    secondary: ksecundaryHeaderColorTheme,
+  ),
   textSelectionColor: kprimaryColorTheme,
   appBarTheme: kappBarTheme,
   iconTheme: IconThemeData(color: kprimaryColorTheme),
@@ -38,4 +42,6 @@ var themeData = ThemeData(
     elevation: 10,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
   ),
+  buttonColor: ksecundaryHeaderColorTheme,
+  primaryColorLight: kprimaryColorTheme,
 );
