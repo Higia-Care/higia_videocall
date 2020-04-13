@@ -77,7 +77,10 @@ class IndexState extends State<IndexPage> {
             showDialog(
               context: context,
               builder: (_) => AlertDialog(
-                title: Text('Acuerdo de usuario'),
+                title: Text(
+                  'Acuerdo de usuario',
+                  style: TextStyle(color: themeData.accentColor),
+                ),
                 content: Text(userAgrement),
                 elevation: 10,
                 scrollable: true,
@@ -89,7 +92,7 @@ class IndexState extends State<IndexPage> {
                     child: Text(
                       'No acepto',
                       style: TextStyle(
-                        color: themeData.accentColor,
+                        color: Colors.black54,
                       ),
                     ),
                     onPressed: () {
