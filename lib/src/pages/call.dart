@@ -114,6 +114,7 @@ class _CallPageState extends State<CallPage> {
           children: <Widget>[_videoView(views[0])],
         ));
       case 2:
+        //TODO: usar stack para poner camara de paciente pequeña
         return Container(
             child: Column(
           children: <Widget>[

@@ -117,8 +117,9 @@ class IndexState extends State<IndexPage> {
               barrierDismissible: false,
             );
           },
+          //TODO: usar firebase para subir nombre de usuario y hora de login
           child: Text(
-            'Antes de ingresar acepta nuestra politica de privacidad',
+            'Acepta nuestra politica de privacidad',
             style: TextStyle(decoration: TextDecoration.underline),
           ),
         ),
