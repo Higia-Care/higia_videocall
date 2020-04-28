@@ -83,7 +83,6 @@ class IndexState extends State<IndexPage> {
                 ),
                 content: Text(userAgrement),
                 elevation: 10,
-                scrollable: true,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
@@ -137,9 +136,7 @@ class IndexState extends State<IndexPage> {
   Future<void> onJoin() async {
     // update input validation
     setState(() {
-      _channelController.text.isEmpty
-          ? _validateError = true
-          : _validateError = false;
+      _channelController.text.isEmpty ? _validateError = true : _validateError = false;
     });
     if (_channelController.text.isNotEmpty && userPrivacityButtonStatus) {
       // await for camera and mic permissions before pushing video page
@@ -161,8 +158,7 @@ class IndexState extends State<IndexPage> {
   Future<void> _handleCameraAndMic() async {
     Permission statusCamera = Permission.camera;
     Permission statusMicrophone = Permission.microphone;
-    if (await statusCamera.isUndetermined ||
-        await statusMicrophone.isUndetermined) {
+    if (await statusCamera.isUndetermined || await statusMicrophone.isUndetermined) {
       await [statusCamera, statusMicrophone].request();
     }
   }
