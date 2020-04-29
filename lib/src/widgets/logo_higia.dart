@@ -15,9 +15,10 @@ class LogoHigia extends StatelessWidget {
           child: Text(
             "HIGIA",
             style: TextStyle(
-                color: kHigiaTitleColor,
-                fontSize: size.width * 0.21,
-                fontFamily: 'gillBold'),
+              color: kHigiaTitleColor,
+              fontSize: size.width * 0.21,
+              fontWeight: FontWeight.w800,
+            ),
           ),
         ),
         FadeInLeft(
@@ -26,9 +27,9 @@ class LogoHigia extends StatelessWidget {
           child: Text(
             "care",
             style: TextStyle(
-                color: kHigiaCareTitleColor,
-                fontSize: size.width * 0.14,
-                fontFamily: 'gill'),
+              color: kHigiaCareTitleColor,
+              fontSize: size.width * 0.14,
+            ),
           ),
         )
       ],

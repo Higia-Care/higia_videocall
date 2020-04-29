@@ -16,6 +16,7 @@ dependencies:
   agora_rtc_engine: ^1.0.10
   permission_handler: ^5.0.0+hotfix.4
   animate_do: ^1.7.2
+  google_fonts: ^1.0.0
   provider: ^4.0.5+1
 
 dev_dependencies:
@@ -24,11 +25,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
-  fonts:
-    - family: gill
-      fonts:
-        - asset: assets/fonts/gillsans.ttf
-    - family: gillBold
-      fonts:
-        - asset: assets/fonts/gillSans_bold.ttf

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const Color kprimaryColorTheme = Color(0XFF643BF5);
 const Color ksecundaryHeaderColorTheme = Color(0XFFD63DAD);
@@ -33,11 +34,9 @@ var themeData = ThemeData(
   appBarTheme: kappBarTheme,
   iconTheme: IconThemeData(color: kprimaryColorTheme),
   accentColor: ksecundaryHeaderColorTheme,
-  textTheme: TextTheme(
-      body1: TextStyle(
-    fontSize: 20,
-    fontFamily: "gill",
-  )),
+  textTheme: GoogleFonts.openSansTextTheme().copyWith(
+    body1: TextStyle(fontSize: 18),
+  ),
   cardTheme: CardTheme(
     elevation: 10,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),

@@ -23,11 +23,11 @@ class AppBarHigia extends StatelessWidget implements PreferredSizeWidget {
       children: <Widget>[
         Text(
           "HIGIA ",
-          style: TextStyle(fontSize: 33, fontFamily: 'gillBold'),
+          style: TextStyle(fontSize: 33, fontWeight: FontWeight.w800),
         ),
         Text(
           "CARE",
-          style: TextStyle(fontSize: 20, fontFamily: 'gill'),
+          style: TextStyle(fontSize: 20),
         ),
       ],
     );
