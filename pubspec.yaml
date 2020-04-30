@@ -3,7 +3,7 @@ description: MVP for Higia.
 authors:
   - Sebastian Garzon
 
-version: 1.0.1+2
+version: 1.0.1+4
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
