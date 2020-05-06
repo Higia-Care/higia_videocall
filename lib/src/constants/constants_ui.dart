@@ -35,7 +35,7 @@ var themeData = ThemeData(
   iconTheme: IconThemeData(color: kprimaryColorTheme),
   accentColor: ksecundaryHeaderColorTheme,
   textTheme: GoogleFonts.openSansTextTheme().copyWith(
-    body1: TextStyle(fontSize: 18),
+    bodyText1: TextStyle(fontSize: 18),
   ),
   cardTheme: CardTheme(
     elevation: 10,
