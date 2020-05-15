@@ -48,6 +48,7 @@ class _CallPageState extends State<CallPage> {
   Future<void> _initAgoraRtcEngine() async {
     await AgoraRtcEngine.create(APP_ID);
     await AgoraRtcEngine.enableVideo();
+    
   }
 
   /// Add agora event handlers
