@@ -156,8 +156,8 @@ class IndexState extends State<IndexPage> {
   }
 
   Future<void> _handleCameraAndMic() async {
-    Permission statusCamera = Permission.camera;
-    Permission statusMicrophone = Permission.microphone;
+    final statusCamera = Permission.camera;
+    final statusMicrophone = Permission.microphone;
     if (await statusCamera.isUndetermined || await statusMicrophone.isUndetermined) {
       await [statusCamera, statusMicrophone].request();
     }
